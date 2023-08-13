@@ -1,0 +1,243 @@
+
+      .link-container {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 5;
+      }
+
+      .align-logo{
+        margin-right: 10px;
+        margin-left: 5px;
+      }
+
+      .hidden-brand {
+        display: block;
+      }
+      
+      .navbar.expanded .hidden-brand {
+        display: none;
+      }
+      
+      .nav {
+        padding-left: 8px;
+      }
+
+      .navbar-toggler:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      .navbar-light .navbar-toggler {
+        border: none;
+      }
+
+      .navbar-light .navbar-nav .nav-link {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: calc(10px + 1vw);
+        color: black;
+        text-decoration: none;
+        background-color: rgb(252, 91, 172);
+        padding: 10px;
+        margin-right: 10px;
+      }
+
+      .sizerLogo {
+        width: calc(30px + 2vw);
+        height: calc(30px + 2vw);
+      }
+
+      .contact-us {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: calc(10px + 1vw);
+        color: black;
+        text-decoration: none;
+        background-color: rgb(252, 91, 172);
+        padding: 10px;
+        margin-right: 10px;
+      }
+
+      .navbar-light .navbar-nav .nav-link:hover,
+      .navbar-light .navbar-nav .nav-link:active {
+        transform: scale(0.9);
+        background-color: yellow;
+      }
+
+      .carousel-item img {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      @media (max-width: 767px) {
+        .carousel-item img {
+          object-fit: cover;
+          width: 100vw;
+          height: 100vh;
+        }
+      }
+
+      .logo {
+        max-width: calc(50px + 2vw);
+        position: absolute;
+        z-index: 3;
+        transition: all 0.2s ease-in-out;
+        margin: 3px;
+      }
+      
+      .logo:hover {
+        content: url('https://cdn.glitch.global/05a6afd2-01ef-4ef8-835f-d29a66e7e52b/logo_hover.png?v=1681902817934');
+        max-width: calc(50px + 2vw);
+      }
+
+      .hide-navbar {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .navbar.expanded {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: blue;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s, visibility 0.5s;
+      }
+
+      body.no-scroll {
+        overflow: hidden;
+      }
+    
+      .navbar.expanded .navbar-collapse {
+        margin-top: -100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .navbar.expanded .my-navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        margin-top: inherit;
+      }
+    
+      .navbar.expanded .nav-item {
+        margin: 1rem 0;
+      }
+    
+      .navbar.expanded .nav-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0rem;
+      }
+      
+
+      .WorkWithUsButton {
+        right: 0px;
+        bottom: 0px;
+        max-width: calc(67px + 1vw);
+        position: absolute;
+        z-index: 4;
+        transition: all 0.2s ease-in-out;
+        margin: 5px;
+      }
+      
+      .WorkWithUsButton:hover {
+        content: url('https://cdn.glitch.global/05a6afd2-01ef-4ef8-835f-d29a66e7e52b/WorkWithUs_Button-01.png?v=1691667179140');
+        max-width: calc(70px + 1vw);
+      }
+
+      .container {
+        padding-top: 100px ;
+        padding-bottom: 100px ;
+        margin: 0%;
+      }
+
+
+      .container2 {
+        padding-top: 100px ;
+        padding-bottom: 100px ;
+        margin: 0%;
+      }
+
+      .footer_st{
+        padding-top: 1vw;
+        padding-bottom: 2vw;
+      }
+
+      .footer_st h1{
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: calc(10px + 1vw);
+        color: black;
+      }
+
+      .footer_st h2{
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        font-size: calc(10px + 1vw);
+        color: black;
+        text-align: right;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+      }
+
+      @media (max-width: 767px) {
+        .row {
+          display: flex;
+          align-items: center;
+          text-align: center;
+        }
+        .text_mobile {
+          padding-top: 50px;
+        }
+        .txt-mobile {
+          order: 2;
+          padding-top: 50px;
+        }
+        .img-mobile {
+          order: 1;
+        }
+      }
+
+      img {
+        border-left: none;
+        max-width: 100%;
+      }      
+
+
+/*
+      .circle-button {
+        text-decoration: none;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: calc(8px + 1vw);
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        line-height: 25px;
+        border-radius: 50px;
+        background-color: rgb(252, 91, 172);
+        color: black;
+        text-align: center;
+  }
+*/
