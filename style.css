@@ -1,3 +1,7 @@
+      .bi.bi-instagram {
+        font-size: 36px; /* Adjust the size as needed */
+        color: black;
+      }
 
       .link-container {
         display: flex;
@@ -44,9 +48,32 @@
         margin-right: 10px;
       }
 
+      .dropdown-menu {
+        background-color: rgb(252, 91, 172);
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+      }
+      
+      
+      .dropdown-item {
+        color: black;
+      }
+      
+      .dropdown-item:hover {
+        background-color: yellow;
+      }
+
       .sizerLogo {
         width: calc(30px + 2vw);
         height: calc(30px + 2vw);
+      }
+
+      .aboutLogo{
+        margin-top: 10vw;
+        margin-bottom: 10vw;
+        width: 15vw;
+        height: 15vw;
+        align-self: center;
       }
 
       .contact-us {
@@ -171,9 +198,83 @@
         margin: 0%;
       }
 
+      .separadores-portfolio {
+        text-transform: capitalize;
+        padding-top: 20px ;
+        padding-bottom: 30px ;
+        margin: 0%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        font-size: calc(5px + 1vw);
+        color: black;
+      }
+
+      .about-text{
+        padding-top: 120px;
+        padding-bottom: 30px;
+        padding-left: 20vw;
+        padding-right: 20vw;
+      }
+
+      .about-text h3{
+        padding-top: 20px ;
+        padding-bottom: 25px ;
+        margin: 0%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: calc(9px + 1vw);
+        color: black;
+        text-decoration: underline;
+      }
+
+      .about-text h4{
+        padding-top: 5px ;
+        padding-bottom: 5px ;
+        margin: 0%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: calc(5px + 1vw);
+        color: black;
+      }
+
+      .separadores-portfolio h2{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+        padding-left: 5vw;
+        margin: 0%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        font-size: calc(5px + 1vw);
+        color: black;
+      }
+
+      .separadores-portfolio h1{
+        padding-top: initial;
+        padding-right: 0;
+        padding-bottom: 10px ;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: 4vw;
+        color: black;
+      }
+
+      
+
       .footer_st{
         padding-top: 1vw;
         padding-bottom: 2vw;
+      }
+      
+      .align-footerL{
+        text-align: left;
+      }
+
+      .align-footerR{
+        text-align: right;
+      }
+
+      .align-footerC{
+        text-align: center;
       }
 
       .footer_st h1{
@@ -188,15 +289,33 @@
         font-weight: 200;
         font-size: calc(10px + 1vw);
         color: black;
-        text-align: right;
       }
-
+      
+      .location_date{
+        align-self:flex-start;
+      }
+      
       .row {
         display: flex;
         align-items: center;
       }
 
+      .navbar-toggler-icon {
+        display: none;
+      }
+
+      select {
+        -webkit-appearance: none; /* for Chrome, Safari and Opera */
+        -moz-appearance: none; /* for Firefox */
+        appearance: none; /* for IE and Edge */
+        /* add other styles as needed */
+      }
+
       @media (max-width: 767px) {
+        .separadores-portfolio h2{
+          padding-left: 0;
+        }
+
         .row {
           display: flex;
           align-items: center;
@@ -211,6 +330,12 @@
         }
         .img-mobile {
           order: 1;
+        }
+        .align-footerL{
+          text-align: center;
+        }
+        .align-footerR{
+          text-align: center;
         }
       }
 
