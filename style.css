@@ -43,7 +43,6 @@
         font-size: calc(10px + 1vw);
         color: black;
         text-decoration: none;
-        background-color: rgb(252, 91, 172);
         padding: 10px;
         margin-right: 10px;
       }
@@ -92,6 +91,10 @@
         }
       }
 
+      .carrousel-portfolio-height {
+        height: 85vh;
+      }
+
       .contact-us {
         font-family: 'Raleway', sans-serif;
         font-weight: 700;
@@ -120,6 +123,9 @@
           object-fit: cover;
           width: 100vw;
           height: 100vh;
+        }
+        .carrousel-portfolio-height {
+          height: 90vh;
         }
       }
 
@@ -346,6 +352,10 @@
       @media (max-width: 767px) {
         .separadores-portfolio h2{
           padding-left: 0;
+        }
+
+        .separadores-portfolio h1{
+          font-size: 7vw;
         }
 
         .row {
