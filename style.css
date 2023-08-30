@@ -68,6 +68,12 @@
         height: calc(30px + 2vw);
       }
 
+      .sizerLogo:hover{
+        content: url('https://cdn.glitch.global/05a6afd2-01ef-4ef8-835f-d29a66e7e52b/logo_hover.png?v=1681902817934');
+        width: calc(30px + 2vw);
+        height: calc(30px + 2vw);
+      }
+
       .aboutLogo{
         margin-top: 10vw;
         margin-bottom: 10vw;
@@ -145,7 +151,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: blue;
+        background-color: #405FFF;
         opacity: 1;
         visibility: visible;
         transition: opacity 0.5s, visibility 0.5s;
@@ -216,6 +222,22 @@
         font-family: 'Raleway', sans-serif;
         font-weight: 200;
         font-size: calc(5px + 1vw);
+        color: black;
+      }
+
+      .txt-index h1{
+        text-transform: capitalize;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: calc(40px + 1vw);
+        color: black;
+      }
+
+      .txt-index p{
+        text-transform: capitalize;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        font-size: calc(20px + 1vw);
         color: black;
       }
 
@@ -342,6 +364,7 @@
           order: 1;
         }
         .align-footerL{
+          padding-top: 20px;
           text-align: center;
         }
         .align-footerR{
