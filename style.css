@@ -1,7 +1,13 @@
-      .bi.bi-instagram {
+      .bi.bi-instagram  {
         font-size: 36px; /* Adjust the size as needed */
         color: black;
       }
+      
+      .bi.bi-facebook  {
+        font-size: 36px; /* Adjust the size as needed */
+        color: black;
+      }
+
 
       .link-container {
         display: flex;
@@ -240,10 +246,10 @@
       }
 
       .txt-index p{
-        text-transform: capitalize;
+        /* text-transform: capitalize; */
         font-family: 'Raleway', sans-serif;
         font-weight: 200;
-        font-size: calc(10px + 1vw);
+        font-size: calc(10px + 1vh);
         color: black;
       }
 
