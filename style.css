@@ -1,3 +1,4 @@
+  
       .bi.bi-instagram  {
         font-size: 36px; /* Adjust the size as needed */
         color: black;
@@ -8,6 +9,10 @@
         color: black;
       }
 
+      .bi.bi-behance  {
+        font-size: 36px; /* Adjust the size as needed */
+        color: black;
+      }
 
       .link-container {
         display: flex;
