@@ -39,7 +39,7 @@
 
       .navbar-light .navbar-nav .nav-link {
         font-family: 'Raleway', sans-serif;
-        font-weight: 800;
+        font-weight: 900;
         font-size: calc(10px + 1vw);
         color: black;
         text-decoration: none;
@@ -243,8 +243,12 @@
         text-transform: capitalize;
         font-family: 'Raleway', sans-serif;
         font-weight: 200;
-        font-size: calc(20px + 1vw);
+        font-size: calc(10px + 1vw);
         color: black;
+      }
+
+      .txt-index-esq {
+        text-align: right;
       }
 
       .about-text{
@@ -348,10 +352,16 @@
         appearance: none; /* for IE and Edge */
         /* add other styles as needed */
       }
+      .padding-header{
+        padding-left: 10px;
+      }
 
       @media (max-width: 767px) {
         .separadores-portfolio h2{
           padding-left: 0;
+        }
+        .padding-header{
+          padding-left: 0px;
         }
 
         .separadores-portfolio h1{
@@ -369,6 +379,9 @@
         .txt-mobile {
           order: 2;
           padding-top: 50px;
+        }
+        .txt-index-esq {
+          text-align: center;
         }
         .img-mobile {
           order: 1;
