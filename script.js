@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbarToggle = document.querySelector('.navbar-toggler');
     const brandItem = navbar.querySelector('.nav-brand');
     const collapse = navbar.querySelector('.navbar-collapse');
-    
+
     // Get the initial position of the button
     const initialPosition = button.offsetTop;
   
@@ -73,6 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   
   
+
+
   
   
 
