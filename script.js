@@ -114,4 +114,44 @@ document.addEventListener('DOMContentLoaded', function() {
       brandItem.classList.remove('hidden-brand');
     }
   });
+
+  const showFormBtn = document.getElementById('showFormBtn');
+  const contactForm = document.querySelector('.contact-form');
+
+  if (showFormBtn && contactForm) {
+    showFormBtn.addEventListener('click', function() {
+      contactForm.classList.remove('hidden-form');
+      showFormBtn.style.display = 'none';
+    });
+  }
+
+  // Initialize ScrollReveal
+  const sr = ScrollReveal({
+    duration: 1000,
+    delay: 200,
+    reset: false
+  });
+
+  // Select all containers EXCEPT the contact container
+  const contentContainers = document.querySelectorAll('.container2:not(.contact-container)');
+
+  // Apply animations to each container
+  contentContainers.forEach((container) => {
+    // Reveal images from bottom
+    sr.reveal(container.querySelector('img'), {
+      origin: 'bottom',
+      distance: '50px',
+      opacity: 0,
+      interval: 300
+    });
+    
+    // Reveal text from bottom with a slight delay
+    sr.reveal(container.querySelector('.txt-index'), {
+      origin: 'bottom',
+      distance: '50px',
+      opacity: 0,
+      interval: 300,
+      delay: 300 // Additional delay for text to create a sequence effect
+    });
+  });
 });
