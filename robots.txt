@@ -1,0 +1,4 @@
+# robots.txt for lospepesstudio.com
+
+User-agent: *
+Allow: /
