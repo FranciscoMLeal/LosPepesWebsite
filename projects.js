@@ -367,8 +367,8 @@ images: [
         topBar: '#405FFF',
         titleSection: '#FF7869',
         description: '#FCA9F4',
-        gallery: '#22D4BC',
-        contactForm: '#FF7869'
+        gallery: '#FF7869',
+        contactForm: '#405FFF'
     }
   }
 };

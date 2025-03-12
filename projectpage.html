@@ -17,6 +17,17 @@
 
     gtag('config', 'G-T4TEB0M133');
     </script>
+    <!-- Hotjar Tracking Code for https://lospepesstudio.com -->
+    <script>
+      (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:5328503,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
     
     <!-- Site Comeca Aqui FAZ LOAD CSS, BOOTSTRAP, FONTS -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,8 +58,14 @@
           <img alt="SizerLogo" class="sizerLogo" src="https://cdn.glitch.global/05a6afd2-01ef-4ef8-835f-d29a66e7e52b/logo.png?v=1681902818905">
         </a>
       </li>
-      <li class="nav-item padding-header">
-        <a class="nav-link" href="/index.html#" aria-label="Go to main page of our website">home</a>
+      <li class="nav-item dropdown padding-header">
+        <a class="nav-link" href="#" id="portfolioDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">home</a>
+        <div class="dropdown-menu" aria-labelledby="portfolioDropdown">
+          <a class="dropdown-item" href="/index.html#mural_painting">murals</a>
+          <a class="dropdown-item" href="/index.html#floor_painting">floors</a>
+          <a class="dropdown-item" href="/index.html#object_painting">object painting</a>
+          <a class="dropdown-item" href="/index.html#contact-section">contact us</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/about.html#" aria-label="Check out who we are, what we do and how we have been doing it">about</a>
@@ -57,7 +74,7 @@
         <a class="nav-link" href="/portfolio.html" aria-label="See our portfolio, the murals, floors, object painting and artwork that we have painted so far">portfolio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="mailto:lospepestudio@gmail.com">contact us</a>
+        <a class="nav-link" href="/contact.html">contact us</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://lospepes.bigcartel.com/products" target="_blank">shop</a>
@@ -115,15 +132,16 @@
 </div>
 
 <!-- Add this after the gallery section -->
-<div class="container-fluid container2 contact-container">
+<div class="container-fluid container2 contact-container" id="contact-section">
   <div class="row justify-content-center">
     <div class="col-md-8 text-center txt-index">
       <div class="contact-section">
         <h2>Are You Inspired? Let's Paint a mural together!</h2>
-        <p>Our projects showcase the transformative power of custom mural art and dynamic urban design. Each project is a testament to how bold creativity and professional expertise can turn ordinary spaces into inspiring masterpieces. If you’re ready to elevate your home, office, or commercial space with a tailor-made mural or street art installation, let’s work together to bring your vision to life.</p>
+        <p>Our projects showcase the transformative power of custom mural art and dynamic urban design. Each project is a testament to how bold creativity and professional expertise can turn ordinary spaces into inspiring masterpieces. If you're ready to elevate your home, office, or commercial space with a tailor-made mural or street art installation, let's work together to bring your vision to life.</p>
+        <p style="padding-bottom: 3vh;">Or contact us at <strong>lospepestudio@gmail.com</strong></p>
         
         <div class="button-group">
-          <button id="showFormBtn" class="btn btn-submit">Send Message</button>
+          <button id="showFormBtn" class="btn btn-submit">Send a Message</button>
           <a href="/portfolio.html" class="gobackBtn">Back to Portfolio</a>
         </div>
         
@@ -166,19 +184,19 @@
 <div class="container-fluid" style="background-color:#BF87FF;">
   <div class="row">
     <div class="footer-link col-md-4 footer_st align-footerL">
-      <h1><a href="mailto:lospepestudio@gmail.com">Los Pepes Studio</a></h1>
+      <h1><a href="mailto:lospepestudio@gmail.com">lospepestudio@gmail.com</a></h1>
     </div>
     <div class="col-md-4 footer_st align-footerC">
       <h2>All Rights Reserved</h2>
     </div>
     <div class="col-md-4 footer_st align-footerR">
-      <a href="https://www.behance.net/pepesstudio" class="btn btn-social-icon btn-behance" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.behance.net/pepesstudio" class="btn btn-social-icon btn-behance" target="_blank" rel="noopener noreferrer" aria-label="Visit our Behance portfolio">
         <span class="bi bi-behance"></span>
       </a>
-      <a href="https://www.facebook.com/lospepestudio/" class="btn btn-social-icon btn-facebook" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.facebook.com/lospepestudio/" class="btn btn-social-icon btn-facebook" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
         <span class="bi bi-facebook"></span>
       </a>
-      <a href="https://www.instagram.com/lospepesstudio/" class="btn btn-social-icon btn-instagram" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/lospepesstudio/" class="btn btn-social-icon btn-instagram" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page">
         <span class="bi bi-instagram"></span>
       </a>
     </div>

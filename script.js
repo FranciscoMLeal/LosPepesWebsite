@@ -18,9 +18,8 @@ function initializePage() {
 }
 
 function loadPortfolio() {
-    // First, verify projectsData is available
     if (typeof projectsData === 'undefined') {
-        console.error('projectsData is not defined! Check if projects.js is loaded correctly');
+        console.error('projectsData is not defined!');
         return;
     }
 
@@ -30,30 +29,54 @@ function loadPortfolio() {
         return;
     }
 
-    // Clear existing content
     portfolioGrid.innerHTML = '';
 
-    console.log('Loading projects:', Object.keys(projectsData));
-
-    // Loop through all projects
     Object.entries(projectsData).forEach(([id, project]) => {
-        console.log('Creating element for project:', id);
+        // Create project container
+        const projectContainer = document.createElement('div');
+        projectContainer.className = 'project-container';
         
         // Create project link
         const projectLink = document.createElement('a');
         projectLink.href = `/projectpage.html?id=${id}`;
         projectLink.className = 'project-link';
 
-        // Create and set up image
+        // Create image
         const img = document.createElement('img');
-        img.src = project.images[0]; // Use first image as thumbnail
-        img.alt = project.title;
+        img.src = project.images[0];
+        img.alt = `${project.title} - ${project.location} ${project.year}`;
+        img.loading = "lazy";
         
-        // Add image to link
+        // Create overlay div
+        const overlay = document.createElement('div');
+        overlay.className = 'project-overlay';
+        overlay.style.backgroundColor = '#405FFF80'; // Fixed color #405FFF at 50% opacity
+
+        // Create project info div
+        const projectInfo = document.createElement('div');
+        projectInfo.className = 'project-info';
+        projectInfo.innerHTML = `
+            <h3>${project.title}</h3>
+            <p>${project.location} • ${project.year}</p>
+        `;
+        
+        // Assemble the components
+        overlay.appendChild(projectInfo);
         projectLink.appendChild(img);
+        projectLink.appendChild(overlay);
+        projectContainer.appendChild(projectLink);
+        portfolioGrid.appendChild(projectContainer);
+
+        // Add SEO and accessibility improvements
+        img.loading = "lazy"; // Lazy loading for better performance
+        img.alt = `${project.title} - ${project.location} ${project.year}`; // More descriptive alt text
         
-        // Add link to grid
-        portfolioGrid.appendChild(projectLink);
+        // Add aria labels for accessibility
+        projectLink.setAttribute('aria-label', `View project: ${project.title} in ${project.location}`);
+        
+        // Add touch feedback handlers
+        projectLink.addEventListener('touchstart', handleTouchStart, { passive: true });
+        projectLink.addEventListener('touchend', handleTouchEnd, { passive: true });
     });
 }
 
@@ -438,6 +461,54 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add your image click behavior here if desired
         });
     });
+
+    // Add intersection observer for better performance
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing once visible
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    // Observe all project containers
+    document.querySelectorAll('.project-container').forEach(container => {
+        observer.observe(container);
+    });
+
+    initParallax();
+    initStickyScroll();
+    
+    // Handle resize events
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            initStickyScroll();
+        }, 250);
+    });
+
+    // Get all links that should scroll to contact form
+    const contactLinks = document.querySelectorAll('a[href*="#contact-section"]');
+    
+    contactLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Scroll to the contact section
+            document.querySelector('#contact-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // After scrolling, trigger the showFormBtn click
+            setTimeout(() => {
+                document.querySelector('#showFormBtn').click();
+            }, 800); // Wait for scroll to complete
+        });
+    });
 });
 
 function openModal(index) {
@@ -500,3 +571,110 @@ function applyProjectTheme(colors) {
     if (gallery) gallery.style.backgroundColor = colors.gallery;
     if (contactContainer) contactContainer.style.backgroundColor = colors.contactForm;
 }
+
+// Touch feedback handlers
+function handleTouchStart(e) {
+    const link = e.currentTarget;
+    link.classList.add('touch-active');
+}
+
+function handleTouchEnd(e) {
+    const link = e.currentTarget;
+    link.classList.remove('touch-active');
+}
+
+function initParallax() {
+    const parallaxImage = document.querySelector('.parallax');
+    if (!parallaxImage) return;
+
+    // Add loading="eager" to prioritize loading
+    parallaxImage.loading = "eager";
+    
+    // Pre-calculate viewport height
+    const viewportHeight = window.innerHeight;
+    let lastScrollY = window.scrollY;
+    let animationFrame;
+
+    function updateParallax() {
+        // Only update if the element is in viewport
+        const rect = parallaxImage.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > viewportHeight) {
+            return;
+        }
+
+        const yOffset = window.scrollY;
+        const speed = 0.3; // Reduced speed for smoother effect
+        const translateY = yOffset * speed;
+        
+        // Use transform3d for better performance
+        parallaxImage.style.transform = `translate3d(-50%, ${translateY}px, 0)`;
+        lastScrollY = yOffset;
+    }
+
+    function onScroll() {
+        if (animationFrame) {
+            return;
+        }
+        
+        animationFrame = requestAnimationFrame(() => {
+            updateParallax();
+            animationFrame = null;
+        });
+    }
+
+    // Throttled scroll event
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (scrollTimeout) {
+            return;
+        }
+        
+        scrollTimeout = setTimeout(() => {
+            onScroll();
+            scrollTimeout = null;
+        }, 10); // 10ms throttle
+    }, { passive: true });
+
+    // Update on resize with debounce
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        if (resizeTimeout) {
+            clearTimeout(resizeTimeout);
+        }
+        
+        resizeTimeout = setTimeout(() => {
+            viewportHeight = window.innerHeight;
+            updateParallax();
+        }, 250);
+    }, { passive: true });
+
+    // Initial update
+    updateParallax();
+}
+
+function initStickyScroll() {
+    // Only run on mobile devices
+    if (window.innerWidth > 768) return;
+
+    const projects = document.querySelectorAll('.project-container');
+    const observerOptions = {
+        root: null,
+        rootMargin: '-40% 0px -40% 0px', // Adjust these values to control when the effect triggers
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('out-of-view');
+            } else {
+                entry.target.classList.add('out-of-view');
+            }
+        });
+    }, observerOptions);
+
+    projects.forEach(project => {
+        observer.observe(project);
+    });
+}
+
