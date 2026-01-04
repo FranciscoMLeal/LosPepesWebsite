@@ -1,50 +1,26 @@
 import os
-import shutil
-from datetime import datetime
 import re
-
-# Define a list of background colors to cycle through
-background_colors = [
-    "#405FFF",
-    "#22D4BC",
-    "#BF87FF",
-    "#FCA9F4",
-    "#FF7869",
-    "#FCA949",
-    "#FFFF54"
-]
+from datetime import datetime
 
 def get_project_info():
     project_name = input("Enter the project name: ").strip()
     location = input("Enter the project location (e.g., City, Country): ").strip()
     date = input("Enter the project date (e.g., 2023): ").strip()
     client = input("Enter the client name: ").strip()
-    description = input("Enter a description of the project (use ): ").strip()
+    description = input("Enter a description of the project: ").strip()
 
     images = []
-    print("\nAdd images for the project (provide at least one set of mobile and desktop image file paths).")
-    print("To finish adding images, leave the file path fields empty.")
-    
+    print("\nAdd image URLs for the project (at least one required).")
+    print("To finish adding images, leave the URL field empty.")
+
     while True:
-        mobile_path = input("Enter mobile image file path (leave empty to finish): ").strip()
-        if not mobile_path:
+        url = input("Enter image URL (leave empty to finish): ").strip()
+        if not url:
             break
-        if not os.path.isfile(mobile_path):
-            print("Mobile image file not found. Please enter a valid file path.")
-            continue
-
-        desktop_path = input("Enter desktop image file path: ").strip()
-        if not desktop_path:
-            print("Desktop image file path is required if mobile image is provided.")
-            continue
-        if not os.path.isfile(desktop_path):
-            print("Desktop image file not found. Please enter a valid file path.")
-            continue
-
-        images.append({"mobile": mobile_path, "desktop": desktop_path})
+        images.append(url)
 
     if not images:
-        print("No images provided. At least one set of mobile and desktop images is required.")
+        print("No images provided. At least one image URL is required.")
         return None
 
     return {
@@ -56,162 +32,88 @@ def get_project_info():
         "images": images
     }
 
-def sanitize_filename(filename):
-    return "".join(c for c in filename if c.isalnum() or c in (' ', '_', '-')).rstrip()
+def sanitize_key(name):
+    # Lowercase, replace spaces with underscores, remove non-alphanum/underscore
+    key = name.lower().replace(" ", "_")
+    key = re.sub(r'[^a-z0-9_]', '', key)
+    return key
 
-def copy_images(project_info, images_dir, project_id):
-    relative_image_paths = []
-    for idx, image_pair in enumerate(project_info["images"], start=1):
-        mobile_src = image_pair["mobile"]
-        desktop_src = image_pair["desktop"]
-
-        mobile_ext = os.path.splitext(mobile_src)[1]
-        desktop_ext = os.path.splitext(desktop_src)[1]
-
-        mobile_filename = f"{project_id}_image{idx}_mobile{mobile_ext}"
-        desktop_filename = f"{project_id}_image{idx}_desktop{desktop_ext}"
-
-        mobile_dest = os.path.join(images_dir, mobile_filename)
-        desktop_dest = os.path.join(images_dir, desktop_filename)
-
-        try:
-            shutil.copy2(mobile_src, mobile_dest)
-            shutil.copy2(desktop_src, desktop_dest)
-        except Exception as e:
-            print(f"Error copying images: {e}")
-            continue
-
-        relative_image_paths.append({
-            "mobile": f"images/{mobile_filename}".replace("\\", "/"),
-            "desktop": f"images/{desktop_filename}".replace("\\", "/")
-        })
-
-    return relative_image_paths
-
-def get_next_background_color(html_content):
-    # Search for the last used color in the 'container-fluid' class
-    matches = re.findall(r'background-color: ?(#\w{6})', html_content)
-    
-    # Find the last color that was used
-    if matches:
-        last_color = matches[0]  # First match is the latest due to order in HTML
-        if last_color in background_colors:
-            # Get the next color in the sequence
-            current_index = background_colors.index(last_color)
-            next_color = background_colors[(current_index + 1) % len(background_colors)]
-        else:
-            # Default to first color if last color isn't in the list
-            next_color = background_colors[0]
-    else:
-        # If no color found, default to first color in list
-        next_color = background_colors[0]
-    
-    return next_color
-
-def add_project_to_html(html_file):
+def append_project_to_js(js_file):
     project_info = get_project_info()
     if not project_info:
         print("Project creation cancelled.")
         return
 
-    html_dir = os.path.dirname(os.path.abspath(html_file))
-    images_dir = os.path.join(html_dir, "images")
+    # Read the original JS file
+    try:
+        with open(js_file, 'r', encoding='utf-8') as f:
+            js_content = f.read()
+    except Exception as e:
+        print(f"Error reading {js_file}: {e}")
+        return
 
-    if not os.path.exists(images_dir):
-        try:
-            os.makedirs(images_dir)
-            print(f"Created images directory at '{images_dir}'.")
-        except Exception as e:
-            print(f"Error creating images directory: {e}")
-            return
+    # Find the last closing brace of the projectsData object
+    match = re.search(r'(const projectsData\s*=\s*{)(.*?)(\n};)', js_content, re.DOTALL)
+    if not match:
+        print("Could not find projectsData object in JS file.")
+        return
 
+    before = match.group(1)
+    body = match.group(2)
+    after = match.group(3)
+
+    # Prepare the new project entry
+    key = sanitize_key(project_info["name"])
     timestamp = int(datetime.now().timestamp())
-    sanitized_name = sanitize_filename(project_info["name"].lower().replace(" ", "_"))
-    project_id = f"{sanitized_name}_{timestamp}"
+    key = f"{key}_{timestamp}"
 
-    relative_images = copy_images(project_info, images_dir, project_id)
-    if not relative_images:
-        print("Failed to copy images. Project creation aborted.")
-        return
+    # Format images array
+    images_str = ",\n      ".join([f"'{img}'" for img in project_info["images"]])
 
-    unique_id = f"carousel_{project_id}"
+    # You can customize colors or set defaults
+    colors = {
+        "topBar": "#405FFF",
+        "titleSection": "#22D4BC",
+        "description": "#BF87FF",
+        "gallery": "#FCA9F4",
+        "contactForm": "#FF7869"
+    }
 
-    # Read the original HTML to find the last used background color
+    colors_str = ",\n            ".join([f"{k}: '{v}'" for k, v in colors.items()])
+
+    # Prepare the JS object string
+    new_entry = f"""
+  '{key}': {{
+    heroPosition: 'top',
+    title: '{project_info["name"]}',
+    client: '{project_info["client"]}',
+    location: '{project_info["location"]}',
+    year: '{project_info["date"]}',
+    description: `{project_info["description"]}`,
+    images: [
+      {images_str}
+    ],
+    colors: {{
+            {colors_str}
+    }}
+  }},"""
+
+    # Insert before the last closing brace
+    new_body = body.rstrip() + new_entry + "\n"
+    new_js_content = before + new_body + after
+
+    # Write back to the JS file
     try:
-        with open(html_file, 'r', encoding='utf-8') as file:
-            original_html = file.read()
-    except FileNotFoundError:
-        print(f"Error: The file '{html_file}' was not found.")
-        return
+        with open(js_file, 'w', encoding='utf-8') as f:
+            f.write(new_js_content)
+        print(f"Added new project '{project_info['name']}' to {js_file} successfully.")
     except Exception as e:
-        print(f"Error reading the HTML file: {e}")
-        return
-
-    # Determine the next color to use
-    background_color = get_next_background_color(original_html)
-
-    # HTML content for the new project section
-    project_html = f"""
-    <!-- Project - {project_info["name"]} - auto insert script -->
-    <div id="{unique_id}" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner carrousel-portfolio-height">
-    """
-    
-    for i, image in enumerate(relative_images):
-        active_class = "active" if i == 0 else ""
-        project_html += f"""
-          <div class="carousel-item {active_class}" id="{unique_id}-item-{i}">
-            <img src="{image['mobile']}" class="d-block w-100 d-sm-none" alt="Slide {i + 1} Mobile">
-            <img src="{image['desktop']}" class="d-block w-100 d-none d-sm-block" alt="Slide {i + 1} Desktop">
-          </div>
-        """
-    
-    project_html += f"""
-        </div>
-        <a class="carousel-control-prev" href="#{unique_id}" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#{unique_id}" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
-    </div>  
-    """
-
-    project_html += f"""
-    <!-- Project Info -->
-    <div class="container-fluid separadores-portfolio" style="background-color:{background_color};">
-        <div class="row">
-            <div class="col-md-6 location_date">
-                <h1>{project_info["name"]}</h1>
-                <h2>{project_info["location"]} - {project_info["date"]}</h2>
-                <h2>{project_info["client"]}</h2>
-            </div>
-            <div class="col-md-6">
-                <p style="margin-top:20px">{project_info["description"]}</p>
-            </div>
-        </div>
-    </div>
-    """
-
-    marker = "<!-- Portfolio Updater start here -->"
-    updated_html = original_html.replace(marker, marker + "\n" + project_html)
-
-    try:
-        with open(html_file, 'w', encoding='utf-8') as file:
-            file.write(updated_html)
-    except Exception as e:
-        print(f"Error writing to the HTML file: {e}")
-        return
-
-    print(f"\nAdded new project '{project_info['name']}' to the HTML portfolio successfully.")
-    print(f"Images have been saved to the '{images_dir}' directory.")
+        print(f"Error writing to {js_file}: {e}")
 
 if __name__ == "__main__":
-    print("=== Portfolio Updater ===")
-    html_file = input("Enter the path to your HTML portfolio file (e.g., portfolio.html): ").strip()
-    if not os.path.isfile(html_file):
-        print(f"Error: The file '{html_file}' does not exist.")
+    print("=== Portfolio Updater (projects.js) ===")
+    js_file = input("Enter the path to your projects.js file (e.g., projects.js): ").strip()
+    if not os.path.isfile(js_file):
+        print(f"Error: The file '{js_file}' does not exist.")
     else:
-        add_project_to_html(html_file)
+        append_project_to_js(js_file)

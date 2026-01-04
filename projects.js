@@ -25,6 +25,31 @@ The painting highlights Faro's natural wealth and its connection to water, empha
         contactForm: '#22D4BC'
     }
   },
+  'kohtakt': {
+    heroPosition: 'top',
+    title: 'Kohtakt',
+    client: 'Mistaker Maker, Cruz Vermelha',
+    location: 'Manteigas, Portugal',
+    year: '2025',
+    description: `Kohtakt is a mural about emotional support, connectivity, and empowerment through Psychological First Aid. The name, rooted in Ukrainian and resonating with the Portuguese “contacto,” reflects the significance of both cultures in this project. It serves as a reminder that, regardless of linguistic or cultural differences, there is always a unifying element that enables relationships and meaningful communication. Divided into two central elements, geometric forms and illustrated scenes, Kohtakt seeks to represent the principle of Connecting in Psychological First Aid: an immediate and temporary response focused on relieving suffering, providing emotional support, and empowering individuals in crisis by connecting them to resources, loved ones, and immediate help. Remember, it is okay to seek help, it is okay to need support, and it is okay to not be okay. Embrace connectionity and local identity. Photos by Mariana Vasconcelos`,
+    images: [
+      'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/510970228853889.685a895d4d345.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/009477228853889.685a895b24ba5.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/b8cf99228853889.685a895b25268.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400/cc60b6228853889.685a895d4ccfa.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/efbed9228853889.685a895c60539.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/600b1c228853889.685a895c5fe67.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/5c7370228853889.685a895c61239.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/b6aa20228853889.685a895c60bc5.jpg'
+    ],
+    colors: {
+            topBar: '#405FFF',
+            titleSection: '#22D4BC',
+            description: '#BF87FF',
+            gallery: '#FCA9F4',
+            contactForm: '#FF7869'
+    }
+  },
 
   'power_rangers': {
     heroPosition: 'top',
@@ -101,6 +126,34 @@ Our aim is to transport viewers to a new realm of fantasy, a magical place assoc
         description: '#FCA949',
         gallery: '#405FFF',
         contactForm: '#22D4BC'
+    }
+  },
+  'ovar_terra_e_mar': {
+    heroPosition: 'top',
+    title: 'Ovar Terra e Mar',
+    client: 'Municipio de Ovar',
+    location: 'Ovar, Portugal',
+    year: '2025',
+    description: `Ovar Terra e Mar is a tile panel that celebrates the fishing tradition that shaped Ovar and captivated Portugal. The ovarinhas﻿, central figures in the composition, carry with them not only the fish. They are women of extraordinary strength who, in a public sphere dominated by men, managed to assert themselves and claim their place, without ever losing their essence or charm. Thus, the panel presents the female figure interspersed with the male, demonstrating her capacity for positioning and boldness. The composition also includes the figure of the fisherman and the fish vendor, pillars of this fishing activity, whose calloused hands tell stories of tides and shoals. Their presence evokes the collective work that helped sustain the community, from Arte Xávega﻿ to the trade that nourished generations. At the base of the panel, a boat invites viewers to become part of the narrative. This element, with an interactive purpose, aims to transform the painting into a portal where passersby can, even for a brief moment, embark on a symbolic journey, becoming part of the artwork through a setting composed of local elements. Finally, the vivid colors associated with the theme are meant to build a bridge between the seriousness of tradition and the celebration of Carnaval﻿, itself another cherished tradition of Ovar.`,
+    images: [
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/4bb03d238369483.69136fef457b2.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/de8aff238369483.69136b7695b96.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/1683d3238369483.69136fed05e8d.jpeg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/715c95238369483.69136fed05500.jpeg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a3098e238369483.69136fed065ed.jpeg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/a2f78f238369483.69136fedb4384.png',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/2dd732238369483.69136fedb3f0c.png',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/6b259c238369483.69136fee8da8e.jpeg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/52e258238369483.69136fee8cfe0.jpeg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3c9170238369483.69136fee8e237.jpeg'
+      
+    ],
+    colors: {
+            topBar: '#405FFF',
+            titleSection: '#22D4BC',
+            description: '#BF87FF',
+            gallery: '#FCA9F4',
+            contactForm: '#FF7869'
     }
   },
 
@@ -207,6 +260,29 @@ images: [
         description: '#22D4BC',
         gallery: '#405FFF',
         contactForm: '#FFFF54'
+    }
+  },
+  'playground_lovers': {
+    heroPosition: 'top',
+    title: 'Playground Lovers',
+    client: 'Freguesia de Santa Clara',
+    location: 'Lisboa, Portugal',
+    year: '2025',
+    description: `Transforming spaces through art feels like magic! Sometimes, all it takes is colorful paint, good vibes, and funky shapes to turn a grey playground into a giant happy canvas. Suddenly, it feels alive and inviting: a place where kids just want to play and have fun.Playgrounds are the happiest parts of school, and the only way to make them even cooler is by painting them in every color! Let’s keep reimagining our schools, turning every blank space into a celebration of life, learning, and color. Here’s to making places where everyone feels safe, welcome, and happy. We truly believe in the social impact of these projects, so let’s keep them alive and running.`,
+    images: [
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/71313a233968825.68b9abb65ce7a.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/27f938233968825.68b9abb50c6c5.jpeg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/1bae2e233968825.68b9abb50b80a.jpeg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/4d6123233968825.68b9abb50bf6c.jpeg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/cee7c3233968825.68b9abb5cb39c.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/78a373233968825.68b9abb5caba9.jpg'
+    ],
+    colors: {
+            topBar: '#405FFF',
+            titleSection: '#22D4BC',
+            description: '#BF87FF',
+            gallery: '#FCA9F4',
+            contactForm: '#FF7869'
     }
   },
 
@@ -317,6 +393,31 @@ images: [
         contactForm: '#FCA9F4'
     }
   },
+  'trama_1767457319': {
+    heroPosition: 'top',
+    title: 'Trama',
+    client: 'Mistaker Maker, Burel Factory',
+    location: 'Manteigas, Portugal',
+    year: '2025',
+    description: `Trama is a mural painting about burel, a traditional fabric from the Serra da Estrela, renowned for its unique characteristics, remarkable historical richness, and countless possibilities that transcend its original use, making it a symbol of innovation and sustainability. The composition is inspired by pattern books, which document weaving patterns and techniques. Aiming to share technical and historical information in a simple and engaging way, we sought to create a narrative about tradition, innovation, and the way burel remains a living part of both local and national identity. The colour palette reflects the duality of burel: natural tones such as green, blue, and brown evoke tradition and a connection to nature, while vibrant shades of orange, yellow, and pink symbolise the innovative spirit that has driven its modernisation. Floral elements in vases complete the visual narrative. The flowers represent the natural beauty of Manteigas, and their placement in vases serves as a metaphor for the preservation of natural and cultural heritage. Just as flowers are kept alive in water, burel stands as a living testament to our ability to learn from the past in order to build a sustainable future. Thus, Trama is a visual celebration of a symbol of creativity and local identity.`,
+    images: [
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/129fd3228857071.685a91a9e7866.jpeg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/4bee32228857071.685a91a7989a5.png',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/ff5da1228857071.685a91a797f40.png',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/61eef8228857071.685a91a798e6b.png',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/1140b6228857071.685a91a8702de.png',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/ca158b228857071.685a91a87085a.png',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/719b7c228857071.685a91a95d2e5.png',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/d7c377228857071.685a91a95d902.png'
+    ],
+    colors: {
+            topBar: '#405FFF',
+            titleSection: '#22D4BC',
+            description: '#BF87FF',
+            gallery: '#FCA9F4',
+            contactForm: '#FF7869'
+    }
+  },
 
   'mural_amoreiras': {
     heroPosition: 'top',
@@ -371,13 +472,31 @@ images: [
         contactForm: '#405FFF'
     }
   }
+  ,
+  'wow': {
+    heroPosition: 'top',
+    title: 'WOW',
+    client: 'Mundicenter',
+    location: 'Lisbon, Portugal',
+    year: '2025',
+    description: `Presented at a leading fashion event in Lisbon PT, this mural explores the theme “WOW in progress.” Created as a live painting, the piece reflected the ongoing process of artistic development and offered a dynamic focal point throughout the event. Guests engaged with the work not only by witnessing its evolution in real time but also by using the mural as a striking photo backdrop, integrating art into their own experience. The result: an interactive artwork that created an artistic atmosphere, inviting new perspectives and memorable moments.`,
+    images: [
+      'https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/6e51da238373029.691377987afb2.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/ea719d238373029.69137795e8a1f.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/af94b2238373029.69137797414be.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/a2e822238373029.691377973ea13.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/09846c238373029.691377974099f.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/3bd767238373029.691377973c59a.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/b6ed24238373029.691377973dec9.jpg',
+      'https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/918efb238373029.6913779741ca6.jpg'
+    ],
+    colors: {
+            topBar: '#405FFF',
+            titleSection: '#FF7869',
+            description: '#BF87FF',
+            gallery: '#FCA9F4',
+            contactForm: '#FF7869'
+    }
+  },
+
 };
-
-
-
-
-
-
-
-// Add this line to verify the file is loaded
-console.log('Projects data loaded:', projectsData); 
