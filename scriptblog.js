@@ -38,14 +38,19 @@ function loadPortfolio() {
         
         // Create project link
         const projectLink = document.createElement('a');
-        projectLink.href = `/projectpage.html?id=${id}`;
+        projectLink.href = `/blogspot.html?id=${id}`;
         projectLink.className = 'project-link';
 
         // Create image
         const img = document.createElement('img');
         img.src = project.images[0];
-        img.alt = `${project.title} - ${project.location} ${project.year}`;
+        img.alt = `${project.title}`;
         img.loading = "lazy";
+        img.className = 'project-info-blog';
+            // Set background color from project's topBar color
+            if (project.colors && project.colors.topBar) {
+                img.style.backgroundColor = project.colors.topBar;
+            }
         
         // Create overlay div
         const overlay = document.createElement('div');
@@ -54,15 +59,26 @@ function loadPortfolio() {
 
         // Create project info div
         const projectInfo = document.createElement('div');
-        projectInfo.className = 'project-info';
-        projectInfo.innerHTML = `
-            <h3>${project.title}</h3>
-            <p>${project.location} • ${project.year}</p>
-        `;
+        projectInfo.className = 'project-info-blog';
+        projectInfo.innerHTML = `<h3>${project.title}</h3>`;
+            // Set background color from project's topBar color
+            if (project.colors && project.colors.topBar) {
+                projectInfo.style.backgroundColor = project.colors.topBar;
+            }
+        
+        // Create project description div
+        const desc = document.createElement('p');
+        desc.className = 'project-info-blog';
+        desc.textContent = project.abstract; // Or a short version if you want
+            // Set background color for description as well
+            if (project.colors && project.colors.topBar) {
+                desc.style.backgroundColor = project.colors.topBar;
+            }
         
         // Assemble the components
-        overlay.appendChild(projectInfo);
+        projectLink.appendChild(projectInfo);
         projectLink.appendChild(img);
+        projectLink.appendChild(desc);
         projectLink.appendChild(overlay);
         projectContainer.appendChild(projectLink);
         portfolioGrid.appendChild(projectContainer);
@@ -99,6 +115,7 @@ function loadProject() {
 
     const project = projectsData[projectId];
     projectImages = project.images;
+    
     try {
         const titleElement = document.getElementById('projectTitle');
         const clientElement = document.getElementById('clientName');

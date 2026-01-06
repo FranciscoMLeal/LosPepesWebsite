@@ -31,7 +31,9 @@ The painting highlights Faro's natural wealth and its connection to water, empha
     client: 'Mistaker Maker, Cruz Vermelha',
     location: 'Manteigas, Portugal',
     year: '2025',
-    description: `Kohtakt is a mural about emotional support, connectivity, and empowerment through Psychological First Aid. The name, rooted in Ukrainian and resonating with the Portuguese “contacto,” reflects the significance of both cultures in this project. It serves as a reminder that, regardless of linguistic or cultural differences, there is always a unifying element that enables relationships and meaningful communication. Divided into two central elements, geometric forms and illustrated scenes, Kohtakt seeks to represent the principle of Connecting in Psychological First Aid: an immediate and temporary response focused on relieving suffering, providing emotional support, and empowering individuals in crisis by connecting them to resources, loved ones, and immediate help. Remember, it is okay to seek help, it is okay to need support, and it is okay to not be okay. Embrace connectionity and local identity. Photos by Mariana Vasconcelos`,
+    description: `Kohtakt is a mural about emotional support, connectivity, and empowerment through Psychological First Aid. The name, rooted in Ukrainian and resonating with the Portuguese “contacto,” reflects the significance of both cultures in this project. It serves as a reminder that, regardless of linguistic or cultural differences, there is always a unifying element that enables relationships and meaningful communication.
+    Divided into two central elements, geometric forms and illustrated scenes, Kohtakt seeks to represent the principle of Connecting in Psychological First Aid: an immediate and temporary response focused on relieving suffering, providing emotional support, and empowering individuals in crisis by connecting them to resources, loved ones, and immediate help. Remember, it is okay to seek help, it is okay to need support, and it is okay to not be okay. Embrace connectionity and local identity. 
+    <i>Photos by Mariana Vasconcelos</i>`,
     images: [
       'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/510970228853889.685a895d4d345.jpg',
       'https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/009477228853889.685a895b24ba5.jpg',
@@ -57,7 +59,7 @@ The painting highlights Faro's natural wealth and its connection to water, empha
     client: 'Galp & Galeria de Arte Urbana',
     location: 'Lisbon',
     year: '2024',
-    description: `The visual narrative expressed in Power Rangers seeks to go beyond mere aesthetics, through the exploration of essential values for the development of sustainability and well-being of both people and the planet they inhabit.
+    description: `The visual narrative expressed in <b>Power Rangers</b> seeks to go beyond mere aesthetics, through the exploration of essential values for the development of sustainability and well-being of both people and the planet they inhabit.
 The represented figures are personifications of the diversity and uniqueness that each person represents within a balanced, plural and sustainable team. Thus, each character reflects the heterogeneity of talents that constitutes the core of the success of a collective. The representation of flowers, as ephemeral and delicate elements, assumes a symbolic meaning: not only is nature essential, irreplaceable and indispensable to human life and the planet, but it also represents the importance of cultivating and caring for something to flourish - commitment, dedication, respect and gratification. This is a visual statement of the commitment to a safe workplace, where the fundamental values that shape the trajectory of all its elements meet and develop.`,
     images: [
       'https://mir-s3-cdn-cf.behance.net/project_modules/1400/200971202479705.66868a77e3a73.jpg',
